@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>Currency converter</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Currency converter</h2>
+        <p>Enter Amount:</p><input type="number" v-model.number="amountConvert">
+        <pre></pre>
+        <p>Convert From:</p>
+        <select id="symbolFrom" v-model="fromConvert">
+            <option :value="s" v-for="s in Object.keys(symbols)">{{s}}</option>
+        </select>
+        <pre></pre>
+        <p>Convert To:</p>
+        <select id="symbolTo" v-model="toConvert">
+            <option :value="s" v-for="s in Object.keys(symbols)">{{s}}</option>
+        </select>
+        <pre></pre>
+        <button @click="calculateResult">Convert</button>
+        <pre></pre>
+        <p>{{convertResult}}</p>
+    </div>
+</body>
+</html>
